@@ -37,3 +37,13 @@ def rotate(nums, k):
 
 
 print(rotate([1,2,3,4,5,6,7],3))
+
+def rotateCondensed(nums, k):
+    if not nums:
+        return None
+    
+    for _ in range(k):
+        nums.insert(0, nums.pop())
+    return nums
+
+print(rotateCondensed([1,2,3,4,5,6,7],3))
