@@ -19,13 +19,34 @@ def twoSum(nums, target):
     # Create an empty list
     sum_indexes = []
     
+    # Iterate through the nums to get the first_index
     for first_index in range(len(nums)):
+        # Iterate through with the first_index to get second_index
         for second_index in range(first_index, len(nums)):
+            # Gather the sum of all possible elements in list
             sum = nums[first_index] + nums[second_index]
+            # Once the sum is the target number we want add it to the empty list
             if sum == target:
-                print(sum)
                 sum_indexes.append(first_index)
                 sum_indexes.append(second_index)
                 return sum_indexes
 
-print(twoSum([2, 3, 11, 15, 1, 6], 9))
+print(twoSum([2, 7, 11, 13, 15], 9))
+
+def twoSumDictionary(nums, target):
+    """
+    Runtime: O(n)
+    """
+    
+    dict = {}
+
+    # Interates through nums and compares the complement between the target and elements
+    for index, element in enumerate(nums):
+        complement = target - element
+        if complement in dict: 
+            complement_index = dict[complement]         
+            return [complement_index, index]
+        dict[element] = index
+    return None
+
+print(twoSumDictionary([2, 7, 11, 13, 15], 9))
