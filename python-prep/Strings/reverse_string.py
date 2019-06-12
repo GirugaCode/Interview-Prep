@@ -31,15 +31,7 @@ Example 2:
 
 Input: ["H","a","n","n","a","h"]
 Output: ["h","a","n","n","a","H"]
-
-
-
 """
-
-
-
-
-
 def reverseString(array):
 
     """
@@ -55,4 +47,10 @@ def reverseString(array):
 
     return array
 
-print(reverseString(["h","e","l","l","o"]))
+print("Reverse String One:",reverseString(["h","e","l","l","o"]))
+
+# Iteration Two based on Brian's Feedback
+def reverseStringOneLine(array):
+    return array[::-1]
+
+print("Reverse String Two:",reverseStringOneLine(["h","e","l","l","o"]))
