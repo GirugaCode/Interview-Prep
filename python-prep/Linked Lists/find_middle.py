@@ -41,6 +41,40 @@ class SolutionTwo:
             node.next
         return node
 
+"""
+Code after doing research on the question
+
+Notes: This is nearly identical to my initial code above however, 
+it is more explicit and in working condition because of the while-loop
+implemented.
+ 
+"""
+class Solution:
+    def middleNode(self, head: ListNode) -> ListNode:
+        # Keep track of the current node so we can iterate through the LL
+        current = head
+        # A count to keep track of the total of nodes we iterate through
+        count = 0
+
+        # While current exists
+        while current:
+            # Increase the count
+            count += 1
+            # set the current to the next node
+            current = current.next
+        
+        # Get the middle node after your iteration
+        middle_node = int(count / 2)
+        
+        # Redefine the current for it to be ready to iterate again
+        current = head
+        # Iterate through the LL once more by the range of the middle variable
+        for _ in range(middle_node):
+            # Set the current to the next node
+            current = current.next
+        # return the current because it should be the middle now
+        return current
+
 
 
 
