@@ -31,13 +31,13 @@ Notes: The logic in the code is there but there are some error I encountered.
 class SolutionTwo:
     def find_middle_node(self, head: ListNode) -> ListNode:
         length = 0
-        for item in ListNode:
+        for _ in head:
             length += 1
         middle_node = length // 2
 
         node = head
 
-        for item in range(middle_node):
+        for _ in range(middle_node):
             node.next
         return node
 

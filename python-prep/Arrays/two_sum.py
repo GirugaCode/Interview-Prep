@@ -31,7 +31,7 @@ def twoSum(nums, target):
                 sum_indexes.append(second_index)
                 return sum_indexes
 
-print(twoSum([2, 7, 11, 13, 15], 9))
+# print(twoSum([2, 7, 11, 13, 15], 9))
 
 def twoSumDictionary(nums, target):
     """
@@ -49,4 +49,31 @@ def twoSumDictionary(nums, target):
         dict[element] = index
     return None
 
-print(twoSumDictionary([2, 7, 11, 13, 15], 9))
+# print(twoSumDictionary([2, 7, 11, 13, 15], 9))
+
+def twoSumPointers(array, target):
+    """
+    Runtime: O(n) where n is the number of elements in the array to move through
+    """
+    left_index = 0
+    right_index = len(array) - 1
+
+    results = []
+
+    while left_index < right_index:
+        complement = array[left_index] + array[right_index]
+
+        if complement == target:
+            results.append(array[left_index])
+            results.append(array[right_index]) 
+            return results
+
+        if complement > target:
+            right_index -= 1
+        
+        if complement < target:
+            left_index += 1
+
+    return None
+
+print(twoSumPointers([2, 7, 11, 13, 15], 9))
