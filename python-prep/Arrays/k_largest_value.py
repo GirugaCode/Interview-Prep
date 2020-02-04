@@ -1,5 +1,5 @@
 """
-Given an array A of n numbers and a count K find the K largest values in the array A
+Given an array (a) of (n) numbers and a count (k) find the (k) largest values in the array (a)
 
 Input: [5,1,3,6,8,2,4,7], k = 3
 Output: [6,7,8]
