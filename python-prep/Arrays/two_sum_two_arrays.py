@@ -13,42 +13,43 @@ Implemented a version to get exact number rather than closest
 """
 
 def two_sum_two_arrays(array_one, array_two, target):
-    # Sort both arrays
-    # [0, 1, 4, 5, 8, 9, 12, 13]
-    # [3, 4, 6, 14, 17]
-    # Create a results array
-    # Create a left pointer on array (a)
-    # Create a right pointer on array (b)
-    # Set a complement between array(a) + array(b)
-    # If array (a) pointer and array(b) pointer is equal to the target
-        # Append array(a) element into results
-        # Append array(b) element into results
-        # Return results here
-    # If target is greater than complement
-        # Move the right pointer -= 1
-    # If target is less than complement
-        # Move the left pointer += 1
-    # Return None
+    
+    # Sort both the arrays to perform a pointer method
     array_one.sort()
     array_two.sort()
-    results = []
+
+    # Left pointer of the 0 index in array_one
     left_pointer = 0
+
+    # Right pointer of the last index in array_two
     right_pointer = len(array_two) - 1
 
-    while left_pointer <= right_pointer:
-        complement = array_one[left_pointer] + array_two[right_pointer]
-        if complement == target:
-            results.append(array_one[left_pointer])
-            results.append(array_two[right_pointer])
-            return results
+    # Initializes the first pair of values to find the closest to target
+    best_pair = [array_one[left_pointer], array_two[right_pointer]]
 
-        if complement > target:
+    # Continue the while loop as long as their are numbers to traverse in each array
+    while left_pointer <= len(array_one) - 1 and right_pointer >= 0:
+
+        # Holds reference to the current pair of elements to add to target
+        current_pair = [array_one[left_pointer], array_two[right_pointer]]
+
+        # Switch case, compares if the best pair complement is greater than the current pair complement.
+        if abs(sum(best_pair) - target) > abs(sum(current_pair) - target):
+            best_pair = current_pair
+
+        # Moves the right pointer
+        if sum(current_pair) > target:
             right_pointer -= 1
 
-        if complement < target:
+        # Moves the left pointer
+        if sum(current_pair) < target:
             left_pointer += 1
+        
+        # Break out of while-loop if the EXACT number is found
+        else:
+            break
 
-    return None
+    return best_pair
 
 
-print(two_sum_two_arrays([9, 13, 1, 8, 12, 4, 0, 5], [3, 17, 4, 14, 6], 20))
+print(two_sum_two_arrays([9, 13, 1, 8, 12, 4, 0, 5], [3, 17, 4, 14, 6], 33))

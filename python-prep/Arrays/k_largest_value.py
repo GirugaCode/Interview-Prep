@@ -23,4 +23,3 @@ def k_largest_value(array, k):
     return results
 
 print(k_largest_value([5,1,3,6,8,2,4,7], 6)) 
-
