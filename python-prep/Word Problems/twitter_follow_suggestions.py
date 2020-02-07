@@ -28,6 +28,10 @@ Make letter matching case sensitive at first, then later make matching case inse
 
 """
 def suggest(new_user, list_of_users, k):
+    """
+    Runtime: O(n^2) where n is the number of times to iterate through the dictionary and 
+    exponentially gets larger for every n number of letters in each word.
+    """
     # Put the list_of_users in a dictionary where the
         # Key -> Username
         # Value -> counter for similarity
@@ -39,11 +43,11 @@ def suggest(new_user, list_of_users, k):
     # Return that key with that largest value
     user_dict = dict.fromkeys(list_of_users, 0)
     print(new_user)
-    for key, value in user_dict.items():
-        print("key:", key)
-        print("value:", value)
+    for key, _ in user_dict.items():
+        # print("key:", key)
+        # print("value:", value)
         for character in key:
-            print("character:", character)
+            # print("character:", character)
             if character in new_user:
                 user_dict[key] += 1
             else:

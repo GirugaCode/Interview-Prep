@@ -21,6 +21,30 @@ class ListNode:
         self.head = head
         self.next = None
 
+
+"""
+     Finds and returns the middle most node of the linked list
+     
+     Interview Challenge #2
+     Given a linked list, write a function that returns the middle node.
+     
+    - Parameters:
+        - head: The starting ListNode we will begin our reversal at
+"""
+class SolutionThree:
+    def find_middle_node_one_pass(self, head: ListNode) -> ListNode:
+        """
+        Time Complexity: O(n/2) -> O(n) Where n is the number of nodes we pass through
+        """
+        slow = head
+        fast = head
+        
+        while fast and fast.next:
+            slow = slow.next
+            fast = fast.next.next
+            
+        return slow
+
 """
 Code during Break-out session
 
