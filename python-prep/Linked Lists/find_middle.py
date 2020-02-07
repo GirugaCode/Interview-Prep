@@ -36,14 +36,16 @@ class SolutionThree:
         """
         Time Complexity: O(n/2) -> O(n) Where n is the number of nodes we pass through
         """
-        slow = head
-        fast = head
+        slow = head # Pointer at regular speed
+        fast = head # Pointer at regular double speed
         
-        while fast and fast.next:
+        # Iterate as long as there is valid node for fast pointer
+        while fast and fast.next: 
             slow = slow.next
             fast = fast.next.next
             
-        return slow
+        # Returns the middle node    
+        return slow 
 
 """
 Code during Break-out session
