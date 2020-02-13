@@ -21,3 +21,26 @@ that a knight can trace on a keyboard starting from any digit .
 def findNumberOfPaths(int: digit, int: step):
     
 """
+knightPaths = {}
+knightPaths[1] = [6,8]
+knightPaths[2] = [9,7]
+knightPaths[3] = [4,8]
+knightPaths[4] = [3,9,0]
+knightPaths[5] = []
+knightPaths[6] = [1,7,0]
+knightPaths[7] = [6,2]
+knightPaths[8] = [3,1]
+knightPaths[9] = [4,2]
+knightPaths[0] = [6,4]
+
+def findNumberOfPaths(digit, step):
+    neighbors = knightPaths[digit]
+    count = 0
+    if step == 1:
+        return len(neighbors)
+    for neighbor in neighbors:
+        count += findNumberOfPaths(neighbor, step - 1)
+    
+    return count
+
+print(findNumberOfPaths(2,3))
