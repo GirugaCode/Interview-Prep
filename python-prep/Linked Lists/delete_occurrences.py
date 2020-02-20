@@ -11,10 +11,10 @@ Write a function that removes all occurrences of a given element in a linked lis
 1 -> 6 -> 4
 """
 
-def removeElements(self, head, val):
+def removeElements(head, data):
     """
     :type head: ListNode
-    :type val: int
+    :type data: int
     :rtype: ListNode
     """
     
@@ -27,10 +27,24 @@ def removeElements(self, head, val):
 
     # Traverse through the LL
     while current_node.next is not None:
-        # Once the value is found, change the pointer to the next value
-        if current_node.next.val == val:
+        # Once the data is found, change the pointer to the next value
+        if current_node.next.data == data:
             current_node.next = current_node.next.next
         else:
             current_node = current_node.next # Base case traversal
             
     return dummy_head.next # Head of the node
+
+
+node1 = Node(1)
+node2 = Node(6)
+node3 = Node(8)
+node4 = Node(8)
+node5 = Node(4) 
+
+node1.next = node2
+node2.next = node3
+node3.next = node4
+node4.next = node5
+
+print(removeElements(node1, 8))
