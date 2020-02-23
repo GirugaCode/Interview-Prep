@@ -34,13 +34,21 @@ knightPaths[9] = [4,2]
 knightPaths[0] = [6,4]
 
 def findNumberOfPaths(digit, step):
+    # Assigns the neighbors to the given digit
     neighbors = knightPaths[digit]
+    # Result of how many steps were taken place
     count = 0
+
+    # Base case, once we've been through all the steps
     if step == 1:
         return len(neighbors)
+
+    # Iterate through all the neighbors
     for neighbor in neighbors:
+        # Increase the count recursivly while decrementing the steps
         count += findNumberOfPaths(neighbor, step - 1)
-    
+        
+    # Return result
     return count
 
 print(findNumberOfPaths(2,3))
