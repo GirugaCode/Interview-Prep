@@ -30,7 +30,7 @@ def remove_duplicates(nums):
     nums[:] = list(set(nums)) # One Liner using dictionaries 
     return len(nums)
 
-print(remove_duplicates([0,0,1,1,1,2,2,3,3,4]))
+# print(remove_duplicates([0,0,1,1,1,2,2,3,3,4]))
 
 def remove_duplicates_two(nums):
     current_index = 0
@@ -42,4 +42,19 @@ def remove_duplicates_two(nums):
         current_index += 1 # going further in the list
     return len(nums)
 
-print(remove_duplicates_two([-1,-1,0,0,0,1,1,1,6,8,8,8]))
+# print(remove_duplicates_two([-1,-1,0,0,0,1,1,1,6,8,8,8]))
+
+def remove_duplicates_three(nums):
+    curr = 0
+    dup = curr + 1
+
+    for _ in range(len(nums) - 1): 
+        if nums[curr] == nums[dup]:
+            nums.remove(nums[dup])
+        else:
+            curr += 1
+            dup += 1
+
+    return nums
+
+print(remove_duplicates_three([]))
