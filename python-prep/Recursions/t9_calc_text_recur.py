@@ -9,6 +9,17 @@ Example execution 2:  t9_letters("4663")  ⇒
                       ["gmmd", …, "gone", …, "good", …, "home", …, "hood", …, "ioof"]
 """
 
+mapping = {
+    '2': 'abc',
+    '3': 'def',
+    '4': 'ghi',
+    '5': 'jkl',
+    '6': 'mno',
+    '7': 'pqrs',
+    '8': 'tuv',
+    '9': 'wxyz',
+}
+
 def t9LetterCombination(digits):
     """
     Runtime: O(n(4^n)) where 4^n is the maxiumum number of characters in each number and 
@@ -31,27 +42,27 @@ def t9Helper(digits, curr_str, res):
         return # Continues after its own recursive call
     
     # Gets all characters for each digit starting at the first one
-    possible_chars = digitToLetters(digits[0])
+    possible_chars = mapping[digits[0]]
 
     # Iterate through all characters
     for char in possible_chars:
         curr_str += char # Add the character to current string
         t9Helper(digits[1:], curr_str, res) # Recursive call w/ slicing of first digit
+
         curr_str = curr_str[:-1] # Slice the last character to find other combinations
 
-
-def digitToLetters(digit):
-    mapping = {
-        '2': 'abc',
-        '3': 'def',
-        '4': 'ghi',
-        '5': 'jkl',
-        '6': 'mno',
-        '7': 'pqrs',
-        '8': 'tuv',
-        '9': 'wxyz',
-    }
-    return mapping[digit]
+# print(t9LetterCombination("234"))
 
 
-print(t9LetterCombination("23"))
+# def digitToLetters(digit):
+#     mapping = {
+#         '2': 'abc',
+#         '3': 'def',
+#         '4': 'ghi',
+#         '5': 'jkl',
+#         '6': 'mno',
+#         '7': 'pqrs',
+#         '8': 'tuv',
+#         '9': 'wxyz',
+#     }
+#     return mapping[digit]
