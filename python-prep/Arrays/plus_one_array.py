@@ -8,7 +8,7 @@ You may assume the integer does not contain any leading zero, except the number 
 Example 1:
 Input: [1,2,3]
 Output: [1,2,4]
-Explanation: The array represents the integer 123.
+
 
 Example 2:
 Input: [4,3,2,1]
@@ -54,3 +54,29 @@ def plus_one_array(array):
     return result
 
 print(plus_one_array([9,9,9,9]))
+
+
+def addOne(l):
+    last_index = len(l)-1                 
+    
+    if l[last_index] == 9:
+        l[last_index] = 0
+        
+        while l[last_index - 1 ] == 9:
+            l[ last_index - 1 ] = 0 
+            last_index -= 1
+        
+        if l[last_index - 1]:
+            l[last_index - 1] += 1
+        else:
+            l.insert(0, 1)
+    
+    else:
+        l[last_index] += 1
+        
+    
+    return l
+
+print(addOne([1,2,3]))
+print(addOne([9,7,9])) 
+print(addOne([8,9,9]))
